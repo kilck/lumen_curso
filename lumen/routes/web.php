@@ -15,9 +15,15 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+$router->get('/hello/{name}', [
+    'as' => 'hello-world',
+    'uses' => 'HelloController@index'
+]);
+
 $router->group(['prefix'=>'api'], function () use ($router){
     $router->get('/users', 'Api\UsersController@index');
     $router->get('/users/{id}', 'Api\UsersController@show');
     $router->post('/users', 'Api\UsersController@store');
     $router->put('/users/{id}', 'Api\UsersController@update');
+    $router->delete('/users/{id}', 'Api\UsersController@destroy');
 });
