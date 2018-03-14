@@ -1,0 +1,7 @@
+#criar migration
+    php artisan make:migration create_users_table
+#criar migrantion sgbd
+    php artisan migrate
+#criar seeds
+    php artisan make:seeder UsersTableSeeder
+    php artisan db:seed
